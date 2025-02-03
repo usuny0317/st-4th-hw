@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-// TODO: props로 받은 $active 에 따라 배경색이 blue 또는 gray가 되도록 해보세요.
+// TODO: props로 받은 $active 에 따라 배경색이 blue 또는 gray가 되도록 해보세요. >> 원래 회색, 클릭된 애가 파란색
 const StyledBox = styled.div`
   width: 100px;
   height: 100px;
@@ -15,7 +14,17 @@ const StyledBox = styled.div`
 `;
 
 function Box({ active, onClick }) {
-  return <StyledBox $active={active} onClick={onClick} />;
+  if (active) {
+    return (
+      <StyledBox
+        style={{ backgroundColor: "blue" }}
+        $active={active}
+        onClick={onClick}
+      />
+    );
+  } else {
+    return <StyledBox $active={active} onClick={onClick} />;
+  }
 }
 
 export default Box;
